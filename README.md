@@ -1,2 +1,4 @@
 # Tic-Tac-Toe
-This is a miniproject of game Tic Tac Toe. Authot - Shlok Trivedi
+This is a miniproject of game Tic Tac Toe.
+<br>
+Author - Shlok Trivedi
