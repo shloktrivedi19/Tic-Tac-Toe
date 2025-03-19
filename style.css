@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #CCCCCC;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                url('backimageMain.webp') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+} 
+
+.header {
+    font-size: 10vmin;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+img {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    border: none;
+}
+
+img:hover {
+    border: 4px solid white;
+    transform: scale(1.15, 1.15);
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.container {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+}
+
+.Text {
+    margin-top: 30px;
+    font-size: 4vmin;
+    font-weight: 900;
+}
