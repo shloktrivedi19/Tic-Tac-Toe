@@ -24,6 +24,14 @@ let compTurn = (i) => {                                  // Generating AI's move
             boxes[number].disabled = true;
             boxes[number].style.pointerEvents = "none";
             turn++;
+            if (!winnerDeclare) {
+                boxes.forEach((box) => {
+                    if (box.innerText === "") {
+                        box.style.pointerEvents = "auto";
+                        box.disabled = false;
+                    }
+                });
+            }
             win();
         }
     } else if (turn > 1) {
@@ -45,6 +53,14 @@ let compTurn = (i) => {                                  // Generating AI's move
                         value.style.pointerEvents = "none";
                         value.disabled = true;
                         turn++;
+                        if (!winnerDeclare) {
+                            boxes.forEach((box) => {
+                                if (box.innerText === "") {
+                                    box.style.pointerEvents = "auto";
+                                    box.disabled = false;
+                                }
+                            });
+                        }
                         win();
                         return;
                     }
@@ -70,6 +86,14 @@ let compTurn = (i) => {                                  // Generating AI's move
                         value.style.pointerEvents = "none";
                         value.disabled = true;
                         turn++;
+                        if (!winnerDeclare) {
+                            boxes.forEach((box) => {
+                                if (box.innerText === "") {
+                                    box.style.pointerEvents = "auto";
+                                    box.disabled = false;
+                                }
+                            });
+                        }
                         win();
                         return;
                     }
@@ -84,6 +108,14 @@ let compTurn = (i) => {                                  // Generating AI's move
         nullArr[num].disabled = true;
         nullArr[num].style.pointerEvents = "none";
         turn++;
+        if (!winnerDeclare) {
+            boxes.forEach((box) => {
+                if (box.innerText === "") {
+                    box.style.pointerEvents = "auto";
+                    box.disabled = false;
+                }
+            });
+        }
         win();
     }    
 }
@@ -139,8 +171,6 @@ let win = () => {                                 // checking for a win
         }
 }
 
-
-
 boxes.forEach((box) => {                              // Adding Event to start the game.
     box.addEventListener("click" , () => {
         box.innerText = "O";
@@ -148,7 +178,10 @@ boxes.forEach((box) => {                              // Adding Event to start t
         box.disabled = true;
         turn++;
         let val = Number(box.getAttribute("id"));
-        win()
+        win();
+        boxes.forEach((b) => {
+            b.style.pointerEvents = "none";
+        });
         setTimeout(() => {
             if (!winnerDeclare) {
                 compTurn(val)
