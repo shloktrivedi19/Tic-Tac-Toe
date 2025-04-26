@@ -26,38 +26,66 @@ let compTurn = (i) => {                                  // Generating AI's move
             turn++;
             win();
         }
-    } else if (turn > 1) {                      //blocking the user 
+    } else if (turn > 1) {
+        // First, try to win
         for (let card of winningDec) {
             let val1 = boxes[card[0]];
             let val2 = boxes[card[1]];
             let val3 = boxes[card[2]];
-            let values = [val1 , val2 , val3]
+            let values = [val1 , val2 , val3];
+            
             if (
-                (val1.innerText === val2.innerText && val2.innerText !== "" && val3.innerText === "") || 
-                (val2.innerText === val3.innerText && val3.innerText !== "" && val1.innerText === "") ||
-                (val3.innerText === val1.innerText && val1.innerText !== "" && val2.innerText === "")
+                (val1.innerText === "X" && val2.innerText === "X" && val3.innerText === "") || 
+                (val2.innerText === "X" && val3.innerText === "X" && val1.innerText === "") ||
+                (val3.innerText === "X" && val1.innerText === "X" && val2.innerText === "")
             ) {
-                    for (let value of values) {
-                        if (value.innerText === "") {
-                            value.innerText = "X";
-                            value.style.pointerEvents = "none";
-                            value.disabled = true;
-                            turn++;
-                            win();
-                            return
-                        }
+                for (let value of values) {
+                    if (value.innerText === "") {
+                        value.innerText = "X";
+                        value.style.pointerEvents = "none";
+                        value.disabled = true;
+                        turn++;
+                        win();
+                        return;
                     }
+                }
             }
         }
-        let nullArr = Array.from(boxes).filter((i) => {            //if no blocking move found
-            return i.innerText === "";
-        })
+    
+        // If no winning move, try to block
+        for (let card of winningDec) {
+            let val1 = boxes[card[0]];
+            let val2 = boxes[card[1]];
+            let val3 = boxes[card[2]];
+            let values = [val1 , val2 , val3];
+            
+            if (
+                (val1.innerText === "O" && val2.innerText === "O" && val3.innerText === "") || 
+                (val2.innerText === "O" && val3.innerText === "O" && val1.innerText === "") ||
+                (val3.innerText === "O" && val1.innerText === "O" && val2.innerText === "")
+            ) {
+                for (let value of values) {
+                    if (value.innerText === "") {
+                        value.innerText = "X";
+                        value.style.pointerEvents = "none";
+                        value.disabled = true;
+                        turn++;
+                        win();
+                        return;
+                    }
+                }
+            }
+        }
+    
+        // Else, random move
+        let nullArr = Array.from(boxes).filter((i) => i.innerText === "");
         let num = Math.floor(Math.random() * nullArr.length);
         nullArr[num].innerText = "X";
         nullArr[num].disabled = true;
+        nullArr[num].style.pointerEvents = "none";
         turn++;
         win();
-    }
+    }    
 }
 
 let resetGamefunc = () => {                     // setting up the reset button
