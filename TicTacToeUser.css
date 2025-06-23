@@ -6,7 +6,7 @@
 
 /* Body */
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
                 url('backimageUser.webp') no-repeat center center fixed;
     background-size: cover;
     color: #CCCCCC;
@@ -29,22 +29,22 @@ body {
 
 /* container */
 .container {
-    height: 70vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 10px;
 }
 
 /* main game */
 .game-box {
-    height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
     width: 60vh;
-    display: flex;
-    align-items: center;
+    height: auto;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
 }
 
 .box {
@@ -54,11 +54,12 @@ body {
     font-size: 9vmin;
     background-color: gray;
     color: black;
+    border: none;
 }
 
 .box:hover {
-    transform: scale(1.05, 1.05);
-    transition: all 0.5s ease ;
+    transform: scale(1.05);
+    transition: all 0.5s ease;
 }
 
 /* Reset Button */
@@ -72,9 +73,10 @@ body {
     font-weight: 600;
     margin-top: 15px;
 }
-.reset-game:hover{
+
+.reset-game:hover {
     cursor: pointer;
-    transform: scale(1.025, 1.025);
+    transform: scale(1.025);
     transition: all 0.3s ease;
 }
 
@@ -87,17 +89,81 @@ body {
     font-size: 2vmin;
     margin-top: 15px;
 }
-.new-game:hover{
+
+.new-game:hover {
     cursor: pointer;
-    transform: scale(1.025, 1.025);
+    transform: scale(1.025);
     transition: all 0.3s ease;
 }
 
-/* Hide class after the game */
+/* Hide classes */
 .hide {
     display: none;
 }
 
 .hidden {
     visibility: hidden;
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .game-name {
+        font-size: 7vmin;
+    }
+
+    .player-turn {
+        font-size: 5vmin;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    .game-box {
+        width: 90vw;
+        grid-gap: 8px;
+    }
+
+    .box {
+        width: 25vw;
+        height: 25vw;
+        font-size: 8vmin;
+    }
+
+    .reset-game {
+        width: 50vw;
+        height: 8vmin;
+        font-size: 3.5vmin;
+    }
+
+    .new-game {
+        width: 40vw;
+        height: 7vmin;
+        font-size: 3vmin;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 480px) {
+    .game-box {
+        width: 95vw;
+        grid-gap: 6px;
+    }
+
+    .box {
+        width: 28vw;
+        height: 28vw;
+        font-size: 7vmin;
+    }
+
+    .reset-game {
+        width: 60vw;
+        height: 10vmin;
+        font-size: 4vmin;
+    }
+
+    .new-game {
+        width: 55vw;
+        height: 9vmin;
+        font-size: 3.5vmin;
+    }
 }

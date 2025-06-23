@@ -103,3 +103,74 @@ body {
     height: 50px;
     font-size: 42px;
 }
+@media (max-width: 768px) {
+    .game-name {
+        font-size: 7vmin;
+    }
+
+    .player-turn {
+        font-size: 5vmin;
+        text-align: center;
+    }
+
+    .game-box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        width: 90vw;
+        height: auto;
+        justify-content: center;
+    }
+
+    .box {
+        width: 25vw;
+        height: 25vw;
+        font-size: 8vmin;
+    }
+
+    .reset-game {
+        width: 50vw;
+        height: 8vmin;
+        font-size: 3.5vmin;
+    }
+
+    .new-game {
+        width: 40vw;
+        height: 7vmin;
+        font-size: 3vmin;
+    }
+
+    .winner {
+        font-size: 6vmin;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-box {
+        grid-gap: 8px;
+        width: 95vw;
+    }
+
+    .box {
+        width: 28vw;
+        height: 28vw;
+        font-size: 7vmin;
+    }
+
+    .reset-game {
+        width: 60vw;
+        height: 10vmin;
+        font-size: 4vmin;
+    }
+
+    .new-game {
+        width: 55vw;
+        height: 9vmin;
+        font-size: 3.5vmin;
+    }
+
+    .winner {
+        font-size: 5.5vmin;
+    }
+}

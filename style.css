@@ -54,3 +54,43 @@ img:hover {
     left: 540px;
     bottom: 100px;
 }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 80px;
+    }
+
+    img {
+        height: 7rem;
+        width: 7rem;
+    }
+
+    .header {
+        font-size: 8vmin;
+    }
+
+    .Text {
+        font-size: 5vmin;
+    }
+
+    .footer {
+        position: static;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    img {
+        height: 5rem;
+        width: 5rem;
+    }
+
+    .header {
+        font-size: 6vmin;
+    }
+
+    .Text {
+        font-size: 4.5vmin;
+    }
+}

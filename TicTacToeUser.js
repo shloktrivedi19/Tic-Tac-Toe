@@ -19,12 +19,14 @@ for (let box of boxes) {       //Adding event to add O or X text when clicking b
         if (turnO) {
             box.innerText = "O";
             box.style.fontFamily = "'Courier New', Courier, monospace";
+            box.style.fontSize = window.innerWidth <= 480 ? "6vmin" : "8vmin";
             box.style.fontWeight = 700;
             box.style.fontSize = "8vmin";
             turnO = false;
             playerTurn.innerText = "Player X's Turn: "
         } else {
             box.innerText = "X";
+            box.style.fontSize = window.innerWidth <= 480 ? "6vmin" : "8vmin";
             box.style.fontFamily = "'Courier New', Courier, monospace";
             box.style.fontWeight = 700;
             box.style.fontSize = "8vmin";
